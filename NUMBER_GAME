@@ -1,0 +1,66 @@
+#include<iostream>
+#include<cstdlib>
+#include<ctime>
+#include<cstring>
+using namespace std;
+
+class GAME
+{
+    int num,rnum,attempts,d=0,c=0,flag=1;
+public:
+    void GET();
+    void SGAME();
+    void RESULT();
+};
+
+void GAME::GET()
+{
+    srand(time(0));
+    rnum=rand()%100+1;
+}
+void GAME::SGAME()
+{
+    while(flag!=0)
+    {
+    cout<<"ENTER THE NUMBER BETWEEN 1-100:";
+    cin>>num;
+    c++;
+    d=abs(num-rnum);
+    if(d==0)
+    {
+        cout<<"CONGRATULATION YOU HAVE GUSSED CORRECT NUMBER"<<endl;
+        flag=0;
+    }
+    else if(d>40)
+    {
+        cout<<"YOUR GUESS IS TOO FAR"<<endl;
+    }
+    else if(d>20)
+    {
+        cout<<"YOUR GUESS IS FAR"<<endl;
+    }
+    else if(d>5)
+    {
+        cout<<"YOUR GUESS IS CLOSE"<<endl;
+    }
+
+    else
+    {
+       cout<<"YOUR GUESS IS TOO CLOSE"<<endl;
+    }
+    }
+}
+void GAME::RESULT()
+{
+    cout<<"YOU HAVE GUSSED THE NUMBER IN "<<c<<" ATTEMPTS"<<endl;
+}
+
+int main()
+{
+    system("Color 70");
+    GAME G;
+    G.GET();
+    G.SGAME();
+    G.RESULT();
+    return 0;
+}
