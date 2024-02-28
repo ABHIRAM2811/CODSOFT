@@ -1,0 +1,57 @@
+#include<iostream>
+#include<cstdlib>
+
+
+using namespace std;
+
+class Calculator
+{
+    float num1,num2,res;
+    int flag=1,ch;
+public:
+    void Get();
+    void CalDisplay();
+};
+void Calculator::Get()
+{
+    cout<<"ENTER NUMBER 1:";
+    cin>>num1;
+    cout<<"ENTER NUMBER 2:";
+    cin>>num2;
+}
+void Calculator::CalDisplay()
+{
+    while(flag!=0)
+    {
+    cout<<"ENTER 1 FOR ADDITION\nENTER 2 FOR SUBSTRACTION\nENTER 3 FOR MULTIPLICATION\nENTER 4 FOR DIVISION\n";
+    cout<<"WNTER YOUR CHOICE:"<<endl;
+    cin>>ch;
+    switch(ch)
+    {
+        case 1:res=num1+num2;
+                cout<<"SUM:"<<res<<endl;
+                break;
+        case 2:res=num1-num2;
+                cout<<"DIFFERNCE:"<<res<<endl;
+                break;
+        case 3:res=num1*num2;
+                cout<<"PRODUCT:"<<res<<endl;
+                break;
+        case 4:res=num1/num2;
+                cout<<"QUOIENT:"<<res<<endl;
+                break;
+        default:cout<<"ENTER CORECT CHOICE:"<<endl;
+    }
+    cout<<"ENTER ANY INTEGER NUMBER FOR PERFORMING MORE ARTHEMATIC OPERATION:"<<endl;
+    cout<<"ENTER ZERO FOR EXITING LOOP"<<endl;
+    cin>>flag;
+}
+}
+int main()
+{
+    system("Color 70");
+    Calculator C;
+    C.Get();
+    C.CalDisplay();
+    return 0;
+}
